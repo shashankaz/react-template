@@ -11,7 +11,6 @@ const links: Record<string, { label: string; href: string }[]> = {
     { label: "Docs", href: "#" },
     { label: "Blog", href: "#" },
     { label: "Components", href: "#" },
-    { label: "GitHub", href: "https://github.com/shashankaz/react-template" },
   ],
   Legal: [
     { label: "Privacy", href: "#" },
