@@ -1,0 +1,9 @@
+.github
+.vscode
+dist
+node_modules
+public
+.env*
+
+# shadcn/ui generated components
+src/components/ui
