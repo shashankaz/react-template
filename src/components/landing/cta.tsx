@@ -31,7 +31,11 @@ export function CTA() {
             className="text-background hover:bg-background/10 hover:text-background gap-2 px-5"
             asChild
           >
-            <a href="https://github.com/shashankaz/react-template" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/shashankaz/react-template"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Star on GitHub
             </a>
           </Button>

@@ -24,7 +24,11 @@ export function Hero() {
             <ArrowRight className="size-4" />
           </Button>
           <Button variant="outline" size="lg" className="gap-2 px-5" asChild>
-            <a href="https://github.com/shashankaz/react-template" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/shashankaz/react-template"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               View on GitHub
             </a>
           </Button>
