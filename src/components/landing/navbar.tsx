@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, Star, X, Zap } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 const navLinks = [
   { label: "Changelog", href: "#" },
@@ -9,6 +10,8 @@ const navLinks = [
   { label: "Docs", href: "#" },
   { label: "Blog", href: "#" },
 ];
+
+const GITHUB_URL = "https://github.com/shashankaz/react-template";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -24,7 +27,7 @@ export function Navbar() {
         <nav className="hidden items-center gap-6 text-sm md:flex">
           {navLinks.map((link) => (
             <a
-              key={link.href}
+              key={link.label}
               href={link.href}
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
@@ -33,20 +36,26 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
-          <Button variant="ghost" size="sm">
-            Sign in
+        <div className="hidden items-center gap-1 md:flex">
+          <Button variant="ghost" size="sm" className="gap-1.5" asChild>
+            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+              <Star className="size-3.5" />
+              Star on GitHub
+            </a>
           </Button>
-          <Button size="sm">Get started</Button>
+          <ModeToggle />
         </div>
 
-        <button
-          className="text-muted-foreground hover:text-foreground md:hidden"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
+        <div className="flex items-center gap-1 md:hidden">
+          <ModeToggle />
+          <button
+            className="text-muted-foreground hover:text-foreground"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -54,7 +63,7 @@ export function Navbar() {
           <nav className="flex flex-col gap-3 pt-4 text-sm">
             {navLinks.map((link) => (
               <a
-                key={link.href}
+                key={link.label}
                 href={link.href}
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setOpen(false)}
@@ -63,12 +72,17 @@ export function Navbar() {
               </a>
             ))}
           </nav>
-          <div className="mt-4 flex flex-col gap-2">
-            <Button variant="outline" size="sm" className="w-full">
-              Sign in
-            </Button>
-            <Button size="sm" className="w-full">
-              Get started
+          <div className="mt-4">
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full gap-1.5"
+              asChild
+            >
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+                <Star className="size-3.5" />
+                Star on GitHub
+              </a>
             </Button>
           </div>
         </div>
